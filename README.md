@@ -15,7 +15,7 @@
 
 ## Project Motivation<a name="motivation"></a>
 
-Just as a disaster hits, the organizations responding are bombarded with a high volume of messages, especialy when they have the least amount of time to pick the most important ones and categorize them. Since, different  organizations handles differnet parts of the effects of the disaster,effective categorization of messages will be of great value.
+Just as a disaster hits, the organizations responding are bombarded with a high volume of messages, especialy when they have the least amount of time to pick the most important ones and categorize them. Since, different organizations handle differnet parts of the effects of the disaster,effective categorization of messages will be of great value.
 
 The aim of this project is to provide a way to easily classify a message recieved during a disaster event, based on a classifier pre-trained on past disaster data from Appen. The input message is taken through a Flask web app, which also has some useful visualizations based on past data. The Web app passes the message to a pre-trained classifier and gives out which categories the message falls into.
 
