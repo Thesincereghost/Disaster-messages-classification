@@ -36,12 +36,12 @@ def load_data(database_filepath):
     Y: Dataframe with target columns
     category_names: Series of all unique categories
     '''
-    engine = create_engine('sqlite:///../'+database_filepath)
+    engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table('message_categories', con=engine)
     X = df['message']
     Y = df.iloc[:,4:]
     category_names = Y.columns
-    retrun X, Y, category_names
+    return X, Y, category_names
 
 
 def tokenize(text):
@@ -124,7 +124,7 @@ def save_model(model, model_filepath):
     model: Machine learning model to be saved
     model_filepath: file path to where the pickle file is to be stored
     '''
-    pickle.dump(cv, open('../'+model_filepath,'wb'))
+    pickle.dump(cv, open(model_filepath,'wb'))
 
 
 def main():
@@ -141,7 +141,8 @@ def main():
         model.fit(X_train, Y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, category_names)
+        report=evaluate_model(model, X_test, Y_test, category_names)
+        print(report)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
